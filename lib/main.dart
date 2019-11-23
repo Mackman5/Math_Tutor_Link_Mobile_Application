@@ -1,3 +1,7 @@
+/*
+ * App for students to be able to communicate online with math tutors by watching ads
+ */
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
