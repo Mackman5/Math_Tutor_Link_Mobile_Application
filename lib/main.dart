@@ -2,9 +2,13 @@
  * App for students to be able to communicate online with math tutors by watching ads
  */
 
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  Admob.initialize("com.mmellary.math_help");
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -48,7 +52,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -57,7 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
     });
   }
 
@@ -95,21 +97,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            AdmobBanner(
+                adUnitId: "ca-app-pub-3940256099942544/6300978111",
+                adSize: AdmobBannerSize.BANNER)
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
